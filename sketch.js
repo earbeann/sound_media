@@ -18,14 +18,11 @@ function setup()
 function togglePlaying(){
     if(!musicFile.isPlaying()){
         musicFile.play();
-        musicFile.setVolume(0.3);
         button.html('pause');
-
     }
     else{
         musicFile.stop();
         button.html('play');
-
     }
 }
 
@@ -35,7 +32,7 @@ function togglePlaying(){
 
 function loadMusic()
 {
-    console.log('it is playing!');
+    console.log("It's working!");
     // musicFile.play();
 }
 
