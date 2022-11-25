@@ -3,13 +3,13 @@ let button;
 
 function setup()
 {
-    createCanvas(200,200;)
+    createCanvas(200,200);
     soundFormats('mp3', 'ogg');
-    musicFile = loadSound('music.mp3', loaded);
+    musicFile = loadSound('music.mp3', loadMusic);
     
     button = createButton('play');
     button.mousePressed(togglePlaying);
-    background(51);
+    // background(51);
     
     // musicFile.play();
 
@@ -35,7 +35,7 @@ function togglePlaying(){
 
 function loadMusic()
 {
-    console.log('It's working!');
+    console.log('it is playing!');
     // musicFile.play();
 }
 
