@@ -5,11 +5,20 @@ let button2;
 let button3;
 let button4
 var jmp;
-var t=0;
+var t1=0;
+var t2=0;
 let amp;
 var rB;
 let music;
 let vol = 0.5;
+var seconds;
+var count=0;
+var img1, img2;
+
+function preload(){
+    img1 = loadImage('img1.jpg');
+    img2 = loadImage('img2.png');
+  }
 
 function setup()
 {
@@ -34,6 +43,13 @@ function setup()
 
     jmp = createButton("Jump");
     jmp.mousePressed(jumpAudio);
+
+    // img = loadImage('img1.jpg');
+    // image(img1, 0, 0);
+
+    // img = loadImage('img2.png');
+    // image(img2, 0, 0);
+
 }
 
 function togglePlaying1(){
@@ -43,6 +59,8 @@ function togglePlaying1(){
             musicFile.setVolume(0.5);
             musicFile.rate(1);
             musicFile.play();
+            img = loadImage('img1.jpg');
+            image(img1, 0, 0, width, height);
             button.html('pause');
         }else{
             musicFile.stop();
@@ -56,6 +74,8 @@ function togglePlaying1(){
             musicFile2.setVolume(0.5);
             musicFile.rate(1);
             musicFile2.play();
+            img = loadImage('img2.png');
+             image(img2, 0, 0, width, height);
             button.html('pause');
         }else{
             musicFile2.stop();
@@ -81,14 +101,17 @@ function loadMusic()
 }
 
 function draw(){
-console.log(amp.getLevel(), musicFile.duration());
-
-stroke(153, 51, 255);
-ellipse(320,240,musicFile.currentTime()*20,480-amp.getLevel()*1000 );
+// console.log(amp.getLevel(), musicFile.duration());
+// count++;
+stroke(255,193,158);
+strokeWeight(5);
+line(340,350,340,240);
+line(340,240,380,300); 
+fill(255,94,0);
+ellipse(320,350,(musicFile.currentTime()*10)/4,(480-amp.getLevel()*1000)/6 );
 
 musicFile.setVolume(volume.value());
 musicFile2.setVolume(volume.value());
-
 }
 
 function jumpAudio(){
@@ -97,7 +120,7 @@ function jumpAudio(){
     console.log(t);
     musicFile.jump(t);
 
-    var len2 = musicFile2x.duration();
+    var len2 = musicFile2.duration();
     var t = random(len);
     console.log(t);
     musicFile2.jump(t);
